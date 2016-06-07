@@ -1,0 +1,67 @@
+<head>
+  <!-- <link rel="import" href="../../packages/<some polymer package>/<some element>.html"> -->
+  <link rel="import" href="../../packages/polymer_elements/iron_icons.html">
+  <link rel="import" href="../../packages/polymer_elements/paper_styles.html">
+</head>
+
+<dom-module id="meetme-app">
+  <template>
+    <style>
+      :root {
+        --meetme-text-color: #9f9f9f;
+      }
+      .add {
+        --paper-fab-background: #FF0000;
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+      }
+
+      .empty {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--meetme-text-color);
+        font-size: 20px;
+        text-align: justify;
+      }
+
+      iron-icon.arrow {
+        position:fixed;
+        right: 160px;
+        bottom: 46px;
+
+        --iron-icon-width: 50px;
+        --iron-icon-height:50px;
+      }
+      div.arrowdown {
+        position: fixed;
+        top: 55%;
+        left: 50%;
+        bottom: 70px;
+        width: 1px;
+        border-left-style: dotted;
+      }
+
+      div.arrowright {
+        position: fixed;
+        bottom: 70px;
+        left: 50%;
+        right: 180px;
+        border-top-style: dotted;
+      }
+    </style>
+    <div>
+        <div class="empty" hidden$="{{!isEmpty}}">
+          <div>Hey you have no event polls!</div>
+          <div>Click to get started.</div>
+        </div>
+        <div class="arrowdown"></div>
+        <div class="arrowright"></div>
+        <iron-icon class="arrow" icon="arrow-forward"></iron-icon>
+        <paper-fab id="add" icon="add" class="add" on-click="addBtnClicked"></paper-fab>
+        <paper-tooltip for="add">Add new event poll</paper-tooltip>
+    </div>
+  </template>
+</dom-module>
